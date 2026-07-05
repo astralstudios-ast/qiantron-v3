@@ -841,7 +841,7 @@ function FinalCTA() {
 function QianTronExperience() {
   return (
     <main className="relative bg-background text-foreground">
-      <Nav />
+      <SiteNav />
       <Hero />
       <Difference />
       <Portfolio />
@@ -854,3 +854,6 @@ function QianTronExperience() {
     </main>
   );
 }
+
+// Re-export footer so tree-shakers keep asset imports intact on this route.
+export { SiteFooter as _SiteFooter };
