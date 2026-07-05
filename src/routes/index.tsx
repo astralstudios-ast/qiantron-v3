@@ -851,9 +851,7 @@ function QianTronExperience() {
       <Ecosystem />
       <FuturePlatform />
       <FinalCTA />
+      <SiteFooter />
     </main>
   );
 }
-
-// Re-export footer so tree-shakers keep asset imports intact on this route.
-export { SiteFooter as _SiteFooter };
