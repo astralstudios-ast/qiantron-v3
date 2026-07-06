@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { ArrowUpRight, Layers, MapPin, Wrench, Gauge, Ship, Factory, ChevronRight } from "lucide-react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
@@ -581,5 +581,3 @@ function CtaChapter() {
   );
 }
 
-// suppress unused-effect lint
-void useEffect;
