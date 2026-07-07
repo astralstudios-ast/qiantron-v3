@@ -100,48 +100,50 @@ function Hero() {
 
       <motion.div
         style={{ opacity }}
-        className="relative z-10 mx-auto flex h-full w-full max-w-[1440px] flex-col justify-end px-6 pb-16 lg:px-10 lg:pb-24"
+        className="relative z-10 mx-auto flex h-full w-full max-w-[1440px] flex-col justify-end px-5 pb-10 sm:px-6 sm:pb-16 lg:px-10 lg:pb-24"
       >
-        <div className="mb-8 flex items-center gap-3 text-[11px] font-mono-brand uppercase tracking-[0.24em] text-white/60">
-          <span className="h-px w-8 bg-primary" />
+        <div className="mb-6 flex items-center gap-3 text-[10px] font-mono-brand uppercase tracking-[0.2em] text-white/60 sm:mb-8 sm:text-[11px] sm:tracking-[0.24em]">
+          <span className="h-px w-6 bg-primary sm:w-8" />
           Global Machinery · Est. 2019
         </div>
-        <h1 className="max-w-[16ch] font-display text-[clamp(2.75rem,7vw,6.5rem)] font-normal leading-[0.95] tracking-tight text-balance">
+        <h1 className="max-w-[16ch] font-display text-[clamp(2.25rem,9vw,6.5rem)] font-normal leading-[0.98] tracking-tight text-balance">
           Premium Machinery.
           <br />
           <span className="italic text-white/70">Seamless</span> Logistics.
           <br />
           Delivered to your <span className="text-primary">doorstep</span>.
         </h1>
-        <p className="mt-8 max-w-xl text-base leading-relaxed text-white/70 lg:text-lg">
+        <p className="mt-6 max-w-xl text-sm leading-relaxed text-white/70 sm:mt-8 sm:text-base lg:text-lg">
           From global sourcing to final delivery, QianTron manages every stage of your
           machinery acquisition journey — engineered as one continuous system.
         </p>
-        <div className="mt-10 flex flex-wrap items-center gap-3">
-          <button className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-[0_0_60px_-10px_oklch(0.48_0.19_27_/_0.6)] transition-all hover:brightness-110">
+        <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:items-center">
+          <button className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-[0_0_60px_-10px_oklch(0.48_0.19_27_/_0.6)] transition-all hover:brightness-110">
             Explore equipment
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </button>
-          <button className="inline-flex items-center gap-2 rounded-full glass px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/15">
+          <button className="inline-flex items-center justify-center gap-2 rounded-full glass px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/15">
             <Play className="h-3.5 w-3.5 fill-current" /> Client login
           </button>
         </div>
 
-        <div className="mt-16 flex flex-wrap items-center gap-x-10 gap-y-4 border-t border-white/10 pt-8 text-[11px] uppercase tracking-[0.2em] text-white/50 font-mono-brand">
-          <span className="text-white/40">Trusted by</span>
-          {["Contractors", "Miners", "Infrastructure Devs", "Fleet Operators", "Port Authorities"].map(
-            (t) => (
-              <span key={t}>{t}</span>
-            ),
-          )}
+        <div className="mt-10 -mx-5 overflow-x-auto no-scrollbar border-t border-white/10 pt-6 sm:mx-0 sm:mt-16 sm:pt-8">
+          <div className="flex min-w-max items-center gap-x-6 px-5 text-[10px] uppercase tracking-[0.18em] text-white/50 font-mono-brand sm:min-w-0 sm:flex-wrap sm:gap-x-10 sm:gap-y-4 sm:px-0 sm:text-[11px] sm:tracking-[0.2em]">
+            <span className="text-white/40">Trusted by</span>
+            {["Contractors", "Miners", "Infrastructure", "Fleet Operators", "Port Authorities"].map(
+              (t) => (
+                <span key={t} className="whitespace-nowrap">{t}</span>
+              ),
+            )}
+          </div>
         </div>
       </motion.div>
 
-      {/* corner meta */}
       <div className="absolute right-6 top-24 hidden text-right font-mono-brand text-[10px] uppercase tracking-[0.2em] text-white/40 lg:block">
         <div>N 6.5244° · E 3.3792°</div>
         <div className="mt-1">Lagos ▸ Mombasa ▸ Durban</div>
       </div>
+
     </section>
   );
 }
