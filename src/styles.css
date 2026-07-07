@@ -97,15 +97,46 @@
 
 @layer base {
   * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  /* Prevent iOS input zoom */
+  input, select, textarea { font-size: 16px; }
+  @media (min-width: 640px) {
+    input, select, textarea { font-size: inherit; }
+  }
+  /* Larger tap targets on touch pointers */
+  @media (hover: none) and (pointer: coarse) {
+    button, a[role="button"], [type="button"], [type="submit"] {
+      min-height: 44px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
   }
   ::selection { background: var(--dragon); color: white; }
+}
+
+@utility safe-x { padding-left: max(1.5rem, env(safe-area-inset-left)); padding-right: max(1.5rem, env(safe-area-inset-right)); }
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar { display: none; }
 }
 
 @utility font-display { font-family: var(--font-display); font-feature-settings: "liga", "dlig"; }
