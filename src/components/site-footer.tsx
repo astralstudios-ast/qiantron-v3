@@ -41,11 +41,12 @@ export function SiteFooter() {
         ))}
       </div>
       <div className="border-t border-white/5">
-        <div className="mx-auto flex w-full max-w-[1440px] flex-col items-start justify-between gap-3 px-6 py-6 font-mono-brand text-[10px] uppercase tracking-[0.24em] text-white/40 sm:flex-row sm:items-center lg:px-10">
+        <div className="mx-auto flex w-full max-w-[1440px] flex-col items-start justify-between gap-3 px-5 py-5 font-mono-brand text-[10px] uppercase tracking-[0.22em] text-white/40 sm:flex-row sm:items-center sm:px-6 sm:py-6 sm:tracking-[0.24em] lg:px-10">
           <span>© {new Date().getFullYear()} QianTron Global · All rights reserved.</span>
           <span>Engineered in Lagos & Shanghai</span>
         </div>
       </div>
+
     </footer>
   );
 }
