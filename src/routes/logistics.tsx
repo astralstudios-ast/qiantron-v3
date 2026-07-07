@@ -44,23 +44,25 @@ function LogisticsPage() {
     <div className="min-h-screen bg-background">
       <SiteNav />
       <section className="relative border-b hairline bg-ink text-white grain">
-        <div className="mx-auto w-full max-w-[1440px] px-6 pb-16 pt-32 lg:px-10 lg:pb-24 lg:pt-40">
-          <div className="eyebrow mb-4 text-white/50">§ Global logistics intelligence</div>
-          <h1 className="font-display text-[clamp(2.5rem,6vw,5.5rem)] leading-[0.98] tracking-tight text-balance">
+        <div className="mx-auto w-full max-w-[1440px] px-5 pb-14 pt-24 sm:px-6 sm:pb-16 sm:pt-32 lg:px-10 lg:pb-24 lg:pt-40">
+          <div className="eyebrow mb-3 text-white/50 sm:mb-4">§ Global logistics intelligence</div>
+          <h1 className="font-display text-[clamp(2.25rem,7vw,5.5rem)] leading-[1] tracking-tight text-balance">
             Trade lanes,
             <br />
             <span className="italic text-primary">orchestrated</span> in real time.
           </h1>
-          <p className="mt-6 max-w-2xl text-base text-white/60 lg:text-lg">
+          <p className="mt-5 max-w-2xl text-base text-white/60 sm:mt-6 sm:text-lg">
             One operations layer unifies factory dispatch, port handoffs, customs and
             escorted final-mile delivery — with a single accountable contact.
           </p>
         </div>
       </section>
 
-      <section className="bg-background py-20 lg:py-28">
-        <div className="mx-auto w-full max-w-[1440px] px-6 lg:px-10">
-          <div className="mb-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+
+      <section className="bg-background py-14 sm:py-20 lg:py-28">
+        <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-6 lg:px-10">
+          <div className="mb-10 grid gap-3 sm:mb-12 sm:grid-cols-2 sm:gap-4 lg:grid-cols-6">
+
             {STAGES.map((s, i) => (
               <motion.div
                 key={s.t}
