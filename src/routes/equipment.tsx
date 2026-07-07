@@ -172,8 +172,9 @@ function ShowcaseChapter({
   const imgY = useTransform(py, (v) => v * 16);
 
   return (
-    <section className="relative border-b border-white/10 bg-ink py-20 lg:py-28">
-      <div className="mx-auto w-full max-w-[1440px] px-6 lg:px-10">
+    <section className="relative border-b border-white/10 bg-ink py-14 sm:py-20 lg:py-28">
+      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-6 lg:px-10">
+
         <header className="mb-12 flex flex-wrap items-end justify-between gap-6">
           <div>
             <div className="eyebrow text-white/45">Chapter 01 · Disciplines</div>
@@ -359,13 +360,14 @@ function SpecCell({
   value: string;
 }) {
   return (
-    <div className="px-5 py-4">
-      <div className="flex items-center gap-1.5 font-mono-brand text-[9px] uppercase tracking-[0.24em] text-white/45">
+    <div className="px-3 py-3 sm:px-5 sm:py-4">
+      <div className="flex items-center gap-1.5 font-mono-brand text-[8px] uppercase tracking-[0.2em] text-white/45 sm:text-[9px] sm:tracking-[0.24em]">
         {icon}
         {label}
       </div>
-      <div className="mt-1.5 font-display text-lg leading-tight text-white">{value}</div>
+      <div className="mt-1 font-display text-sm leading-tight text-white sm:mt-1.5 sm:text-lg">{value}</div>
     </div>
+
   );
 }
 
