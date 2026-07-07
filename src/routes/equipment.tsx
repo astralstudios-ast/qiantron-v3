@@ -190,19 +190,23 @@ function ShowcaseChapter({
           </p>
         </header>
 
-        <div className="grid gap-8 lg:grid-cols-12">
-          {/* Rail */}
-          <ol className="lg:col-span-4 lg:border-r lg:border-white/10 lg:pr-6">
+        <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
+          {/* Rail — horizontal chips on mobile, vertical list on lg */}
+          <ol className="-mx-5 flex snap-x snap-mandatory gap-2 overflow-x-auto px-5 pb-2 no-scrollbar sm:mx-0 sm:px-0 lg:col-span-4 lg:block lg:snap-none lg:overflow-visible lg:border-r lg:border-white/10 lg:pr-6">
             {products.map((p, i) => {
               const isActive = i === activeIdx;
               return (
-                <li key={p.slug}>
+                <li key={p.slug} className="shrink-0 snap-start lg:shrink lg:snap-align-none">
                   <button
                     type="button"
                     onMouseEnter={() => onSelect(i)}
                     onFocus={() => onSelect(i)}
                     onClick={() => onSelect(i)}
-                    className="group relative flex w-full items-center gap-4 border-b border-white/10 py-5 text-left transition-colors"
+                    className={`group relative flex h-full w-40 items-start gap-3 rounded-xl border p-3 text-left transition-colors sm:w-52 lg:w-full lg:items-center lg:gap-4 lg:rounded-none lg:border-0 lg:border-b lg:border-white/10 lg:p-0 lg:py-5 ${
+                      isActive
+                        ? "border-white/25 bg-white/[0.04] lg:border-transparent lg:bg-transparent"
+                        : "border-white/10 bg-white/[0.02] lg:bg-transparent"
+                    }`}
                     aria-pressed={isActive}
                   >
                     <span
@@ -212,25 +216,25 @@ function ShowcaseChapter({
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="flex-1">
+                    <span className="flex-1 min-w-0">
                       <span
-                        className={`block font-display text-2xl leading-tight transition-colors sm:text-3xl ${
+                        className={`block truncate font-display text-lg leading-tight transition-colors sm:text-2xl lg:text-3xl ${
                           isActive ? "text-white" : "text-white/50 group-hover:text-white/80"
                         }`}
                       >
                         {p.name}
                       </span>
-                      <span className="mt-1 block text-xs text-white/40">{p.spec}</span>
+                      <span className="mt-0.5 block truncate text-[11px] text-white/40 sm:text-xs">{p.spec}</span>
                     </span>
                     <ChevronRight
-                      className={`h-4 w-4 shrink-0 transition-all ${
+                      className={`hidden h-4 w-4 shrink-0 transition-all lg:block ${
                         isActive ? "translate-x-1 text-[oklch(0.78_0.14_82)]" : "text-white/30"
                       }`}
                     />
                     {isActive && (
                       <motion.span
                         layoutId="rail-marker"
-                        className="absolute -right-[1px] top-0 h-full w-[2px] bg-gradient-to-b from-[oklch(0.48_0.19_27)] to-[oklch(0.78_0.14_82)]"
+                        className="absolute -bottom-[1px] left-0 h-[2px] w-full bg-gradient-to-r from-[oklch(0.48_0.19_27)] to-[oklch(0.78_0.14_82)] lg:-right-[1px] lg:bottom-auto lg:left-auto lg:top-0 lg:h-full lg:w-[2px] lg:bg-gradient-to-b"
                       />
                     )}
                   </button>
@@ -238,6 +242,7 @@ function ShowcaseChapter({
               );
             })}
           </ol>
+
 
           {/* Cinema */}
           <div className="lg:col-span-8">
