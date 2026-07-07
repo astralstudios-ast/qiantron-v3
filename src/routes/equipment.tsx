@@ -96,14 +96,14 @@ function HeroChapter({ total }: { total: number }) {
         <div className="h-full w-full rounded-full forge-bg" />
       </motion.div>
 
-      <div className="relative mx-auto w-full max-w-[1440px] px-6 pb-24 pt-32 lg:px-10 lg:pb-32 lg:pt-44">
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+      <div className="relative mx-auto w-full max-w-[1440px] px-5 pb-16 pt-24 sm:px-6 sm:pb-24 sm:pt-32 lg:px-10 lg:pb-32 lg:pt-44">
+        <div className="grid gap-8 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-8">
-            <div className="eyebrow mb-6 flex items-center gap-3 text-white/50">
-              <span className="inline-block h-px w-8 bg-white/40" />
-              § Catalogue Vol. I · {String(total).padStart(2, "0")} disciplines
+            <div className="eyebrow mb-4 flex items-center gap-3 text-white/50 sm:mb-6">
+              <span className="inline-block h-px w-6 bg-white/40 sm:w-8" />
+              <span className="truncate">§ Vol. I · {String(total).padStart(2, "0")} disciplines</span>
             </div>
-            <h1 className="font-display text-[clamp(3rem,8vw,7.5rem)] leading-[0.92] tracking-tight text-balance">
+            <h1 className="font-display text-[clamp(2.5rem,10vw,7.5rem)] leading-[0.94] tracking-tight text-balance">
               Machinery,
               <br />
               <span className="italic text-white/50">presented as</span>
@@ -121,13 +121,13 @@ function HeroChapter({ total }: { total: number }) {
             </h1>
           </div>
           <div className="lg:col-span-4 lg:pt-6">
-            <p className="max-w-md text-base leading-relaxed text-white/60 lg:text-lg">
+            <p className="max-w-md text-sm leading-relaxed text-white/60 sm:text-base lg:text-lg">
               Every unit is sourced from vetted OEMs, inspected against QianTron's QC
               checklist, and delivered site-ready. This catalogue is served live from
               <span className="mx-1 font-mono-brand text-white/80">/api/products</span>
               — the same pipeline that powers our client operations dashboard.
             </p>
-            <dl className="mt-8 grid grid-cols-3 gap-6 border-t border-white/10 pt-6 font-mono-brand text-[10px] uppercase tracking-[0.22em] text-white/45">
+            <dl className="mt-6 grid grid-cols-3 gap-3 border-t border-white/10 pt-5 font-mono-brand text-[9px] uppercase tracking-[0.18em] text-white/45 sm:mt-8 sm:gap-6 sm:pt-6 sm:text-[10px] sm:tracking-[0.22em]">
               {[
                 { k: "OEM Partners", v: "42" },
                 { k: "Corridors", v: "18" },
@@ -135,7 +135,7 @@ function HeroChapter({ total }: { total: number }) {
               ].map((s) => (
                 <div key={s.k}>
                   <dt>{s.k}</dt>
-                  <dd className="mt-1 font-display text-3xl text-white">{s.v}</dd>
+                  <dd className="mt-1 font-display text-2xl text-white sm:text-3xl">{s.v}</dd>
                 </div>
               ))}
             </dl>
@@ -143,11 +143,11 @@ function HeroChapter({ total }: { total: number }) {
         </div>
       </div>
 
-      {/* bottom flow */}
       <FlowLine className="absolute inset-x-0 bottom-0 w-full" height={140} />
     </section>
   );
 }
+
 
 /* ───────────────────────  IMMERSIVE SHOWCASE  ─────────────────── */
 
