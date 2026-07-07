@@ -96,14 +96,14 @@ function HeroChapter({ total }: { total: number }) {
         <div className="h-full w-full rounded-full forge-bg" />
       </motion.div>
 
-      <div className="relative mx-auto w-full max-w-[1440px] px-6 pb-24 pt-32 lg:px-10 lg:pb-32 lg:pt-44">
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
+      <div className="relative mx-auto w-full max-w-[1440px] px-5 pb-16 pt-24 sm:px-6 sm:pb-24 sm:pt-32 lg:px-10 lg:pb-32 lg:pt-44">
+        <div className="grid gap-8 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-8">
-            <div className="eyebrow mb-6 flex items-center gap-3 text-white/50">
-              <span className="inline-block h-px w-8 bg-white/40" />
-              § Catalogue Vol. I · {String(total).padStart(2, "0")} disciplines
+            <div className="eyebrow mb-4 flex items-center gap-3 text-white/50 sm:mb-6">
+              <span className="inline-block h-px w-6 bg-white/40 sm:w-8" />
+              <span className="truncate">§ Vol. I · {String(total).padStart(2, "0")} disciplines</span>
             </div>
-            <h1 className="font-display text-[clamp(3rem,8vw,7.5rem)] leading-[0.92] tracking-tight text-balance">
+            <h1 className="font-display text-[clamp(2.5rem,10vw,7.5rem)] leading-[0.94] tracking-tight text-balance">
               Machinery,
               <br />
               <span className="italic text-white/50">presented as</span>
@@ -121,13 +121,13 @@ function HeroChapter({ total }: { total: number }) {
             </h1>
           </div>
           <div className="lg:col-span-4 lg:pt-6">
-            <p className="max-w-md text-base leading-relaxed text-white/60 lg:text-lg">
+            <p className="max-w-md text-sm leading-relaxed text-white/60 sm:text-base lg:text-lg">
               Every unit is sourced from vetted OEMs, inspected against QianTron's QC
               checklist, and delivered site-ready. This catalogue is served live from
               <span className="mx-1 font-mono-brand text-white/80">/api/products</span>
               — the same pipeline that powers our client operations dashboard.
             </p>
-            <dl className="mt-8 grid grid-cols-3 gap-6 border-t border-white/10 pt-6 font-mono-brand text-[10px] uppercase tracking-[0.22em] text-white/45">
+            <dl className="mt-6 grid grid-cols-3 gap-3 border-t border-white/10 pt-5 font-mono-brand text-[9px] uppercase tracking-[0.18em] text-white/45 sm:mt-8 sm:gap-6 sm:pt-6 sm:text-[10px] sm:tracking-[0.22em]">
               {[
                 { k: "OEM Partners", v: "42" },
                 { k: "Corridors", v: "18" },
@@ -135,7 +135,7 @@ function HeroChapter({ total }: { total: number }) {
               ].map((s) => (
                 <div key={s.k}>
                   <dt>{s.k}</dt>
-                  <dd className="mt-1 font-display text-3xl text-white">{s.v}</dd>
+                  <dd className="mt-1 font-display text-2xl text-white sm:text-3xl">{s.v}</dd>
                 </div>
               ))}
             </dl>
@@ -143,11 +143,11 @@ function HeroChapter({ total }: { total: number }) {
         </div>
       </div>
 
-      {/* bottom flow */}
       <FlowLine className="absolute inset-x-0 bottom-0 w-full" height={140} />
     </section>
   );
 }
+
 
 /* ───────────────────────  IMMERSIVE SHOWCASE  ─────────────────── */
 
@@ -172,8 +172,9 @@ function ShowcaseChapter({
   const imgY = useTransform(py, (v) => v * 16);
 
   return (
-    <section className="relative border-b border-white/10 bg-ink py-20 lg:py-28">
-      <div className="mx-auto w-full max-w-[1440px] px-6 lg:px-10">
+    <section className="relative border-b border-white/10 bg-ink py-14 sm:py-20 lg:py-28">
+      <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-6 lg:px-10">
+
         <header className="mb-12 flex flex-wrap items-end justify-between gap-6">
           <div>
             <div className="eyebrow text-white/45">Chapter 01 · Disciplines</div>
@@ -190,19 +191,23 @@ function ShowcaseChapter({
           </p>
         </header>
 
-        <div className="grid gap-8 lg:grid-cols-12">
-          {/* Rail */}
-          <ol className="lg:col-span-4 lg:border-r lg:border-white/10 lg:pr-6">
+        <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
+          {/* Rail — horizontal chips on mobile, vertical list on lg */}
+          <ol className="-mx-5 flex snap-x snap-mandatory gap-2 overflow-x-auto px-5 pb-2 no-scrollbar sm:mx-0 sm:px-0 lg:col-span-4 lg:block lg:snap-none lg:overflow-visible lg:border-r lg:border-white/10 lg:pr-6">
             {products.map((p, i) => {
               const isActive = i === activeIdx;
               return (
-                <li key={p.slug}>
+                <li key={p.slug} className="shrink-0 snap-start lg:shrink lg:snap-align-none">
                   <button
                     type="button"
                     onMouseEnter={() => onSelect(i)}
                     onFocus={() => onSelect(i)}
                     onClick={() => onSelect(i)}
-                    className="group relative flex w-full items-center gap-4 border-b border-white/10 py-5 text-left transition-colors"
+                    className={`group relative flex h-full w-40 items-start gap-3 rounded-xl border p-3 text-left transition-colors sm:w-52 lg:w-full lg:items-center lg:gap-4 lg:rounded-none lg:border-0 lg:border-b lg:border-white/10 lg:p-0 lg:py-5 ${
+                      isActive
+                        ? "border-white/25 bg-white/[0.04] lg:border-transparent lg:bg-transparent"
+                        : "border-white/10 bg-white/[0.02] lg:bg-transparent"
+                    }`}
                     aria-pressed={isActive}
                   >
                     <span
@@ -212,25 +217,25 @@ function ShowcaseChapter({
                     >
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="flex-1">
+                    <span className="flex-1 min-w-0">
                       <span
-                        className={`block font-display text-2xl leading-tight transition-colors sm:text-3xl ${
+                        className={`block truncate font-display text-lg leading-tight transition-colors sm:text-2xl lg:text-3xl ${
                           isActive ? "text-white" : "text-white/50 group-hover:text-white/80"
                         }`}
                       >
                         {p.name}
                       </span>
-                      <span className="mt-1 block text-xs text-white/40">{p.spec}</span>
+                      <span className="mt-0.5 block truncate text-[11px] text-white/40 sm:text-xs">{p.spec}</span>
                     </span>
                     <ChevronRight
-                      className={`h-4 w-4 shrink-0 transition-all ${
+                      className={`hidden h-4 w-4 shrink-0 transition-all lg:block ${
                         isActive ? "translate-x-1 text-[oklch(0.78_0.14_82)]" : "text-white/30"
                       }`}
                     />
                     {isActive && (
                       <motion.span
                         layoutId="rail-marker"
-                        className="absolute -right-[1px] top-0 h-full w-[2px] bg-gradient-to-b from-[oklch(0.48_0.19_27)] to-[oklch(0.78_0.14_82)]"
+                        className="absolute -bottom-[1px] left-0 h-[2px] w-full bg-gradient-to-r from-[oklch(0.48_0.19_27)] to-[oklch(0.78_0.14_82)] lg:-right-[1px] lg:bottom-auto lg:left-auto lg:top-0 lg:h-full lg:w-[2px] lg:bg-gradient-to-b"
                       />
                     )}
                   </button>
@@ -238,6 +243,7 @@ function ShowcaseChapter({
               );
             })}
           </ol>
+
 
           {/* Cinema */}
           <div className="lg:col-span-8">
@@ -354,13 +360,14 @@ function SpecCell({
   value: string;
 }) {
   return (
-    <div className="px-5 py-4">
-      <div className="flex items-center gap-1.5 font-mono-brand text-[9px] uppercase tracking-[0.24em] text-white/45">
+    <div className="px-3 py-3 sm:px-5 sm:py-4">
+      <div className="flex items-center gap-1.5 font-mono-brand text-[8px] uppercase tracking-[0.2em] text-white/45 sm:text-[9px] sm:tracking-[0.24em]">
         {icon}
         {label}
       </div>
-      <div className="mt-1.5 font-display text-lg leading-tight text-white">{value}</div>
+      <div className="mt-1 font-display text-sm leading-tight text-white sm:mt-1.5 sm:text-lg">{value}</div>
     </div>
+
   );
 }
 

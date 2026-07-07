@@ -1,0 +1,11 @@
+# Cloudflare Workers self-host config. Build with:
+#   NITRO_PRESET=cloudflare-module bun run build
+# then: bunx wrangler deploy
+name = "qiantron"
+main = ".output/server/index.mjs"
+compatibility_date = "2025-06-01"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = ".output/public"
+binding = "ASSETS"
